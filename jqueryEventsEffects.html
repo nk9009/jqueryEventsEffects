@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style type="text/css">
+        table{border:1px solid #aaa; margin:20px; text-align: center; font-weight: bold; font-size: 20px;}
+        td{border: 1px solid #aaa; width: 100px; height: 100px;}
+        .sel{background: #f00; color: #fff; font-weight: bold;}
+        body{font-size: 20px}
+        #pop1{width:300px; height: 400px; background: #09f;}
+        #pop2{width:300px; height: 400px; background: #09f;}
+        #pop3{width:300px; height: 400px; background: #09f;}
+    </style>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("td").hover(function(){
+                $(this).addClass("sel");
+            }, function(){
+                $(this).removeClass("sel");
+            });
+            // 베이직
+            $("#pop1 a").click(function(){
+                $("#pop1").hide();
+            });
+            $("a:eq(0)").click(function(){
+                $("#pop1").show();
+            });
+            $("a:eq(1)").click(function(){
+                $("#pop1").toggle();
+            });
+            // 슬라이드
+            $("#pop2 a").click(function(){
+                $("#pop2").slideUp("slow");
+            });
+            $("a:eq(0)").click(function(){
+                $("#pop2").slideDown("slow");
+            });
+            $("a:eq(1)").click(function(){
+                $("#pop2").slideToggle("slow");
+            });
+            // fading
+            $("#pop3 a").click(function(){
+                $("#pop3").fadeOut("slow");
+            });
+            $("a:eq(0)").click(function(){
+                $("#pop3").fadeIn("slow");
+            });
+            $("a:eq(1)").click(function(){
+                $("#pop3").fadeTo("slow", 0.5);
+            });
+            $("a:eq(2)").click(function(){
+                $("#pop3").fadeTo("slow", 1);
+            });
+            $("a:eq(3)").click(function(){
+                $("#pop3").fadeToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>* 이벤트</h2>
+    <table>
+        <tr>
+            <td>#1</td><td>#2</td><td>#3</td>
+            <td>#4</td><td>#5</td>
+        </tr>
+    </table>
+    <h2>* 이펙트</h2>
+    <!-- <h3>베이직</h3>
+    <a href="#">보이기</a>
+    <a href="#">바꾸기</a>
+    <div id="pop1">
+        <a href="#">감추기</a>
+    </div> -->
+    <!-- <h3>슬라이드</h3>
+    <a href="#">보이기</a>
+    <a href="#">바꾸기</a>
+    <div id="pop2">
+        <a href="#">감추기</a>
+    </div> -->
+    <h3>fading</h3>
+    <a href="#">보이기</a>
+    <a href="#">50%</a>
+    <a href="#">100%</a>
+    <a href="#">바꾸기</a>
+    <div id="pop3">
+        <a href="#">감추기</a>
+    </div>
+</body>
+</html>
